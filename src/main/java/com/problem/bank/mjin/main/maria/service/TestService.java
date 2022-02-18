@@ -1,8 +1,7 @@
-package com.problem.bank.mjin.main.service;
+package com.problem.bank.mjin.main.maria.service;
 
-import com.problem.bank.mjin.main.model.Board;
-import com.problem.bank.mjin.main.repo.TestRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.problem.bank.mjin.main.maria.model.Board;
+import com.problem.bank.mjin.main.maria.repo.TestRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

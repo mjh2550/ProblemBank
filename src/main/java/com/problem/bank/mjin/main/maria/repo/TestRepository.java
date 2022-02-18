@@ -1,6 +1,6 @@
-package com.problem.bank.mjin.main.repo;
+package com.problem.bank.mjin.main.maria.repo;
 
-import com.problem.bank.mjin.main.model.Board;
+import com.problem.bank.mjin.main.maria.model.Board;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

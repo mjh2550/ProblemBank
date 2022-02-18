@@ -1,4 +1,4 @@
-package com.problem.bank.mjin.main.model;
+package com.problem.bank.mjin.main.maria.model;
 
 import lombok.*;
 

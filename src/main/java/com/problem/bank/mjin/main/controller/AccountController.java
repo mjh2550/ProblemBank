@@ -1,7 +1,5 @@
 package com.problem.bank.mjin.main.controller;
 
-import com.problem.bank.mjin.main.maria.model.Board;
-import com.problem.bank.mjin.main.maria.service.TestService;
 import com.problem.bank.mjin.main.ora.model.Accounts;
 import com.problem.bank.mjin.main.ora.service.AccountService;
 import lombok.RequiredArgsConstructor;
@@ -15,22 +13,14 @@ import java.util.List;
 @RestController // JSON 형태 결과값을 반환해줌 (@ResponseBody가 필요없음)
 @RequiredArgsConstructor // final 객체를 Constructor Injection 해줌. (Autowired 역할)
 @RequestMapping("/test")
-public class TestController {
+public class AccountController {
 
     @Autowired
-    private TestService testService;
+    private AccountService accountService;
 
 
-
-    /**
-     * 테스트 게시글 전체조회
-     * @return
-     */
-    @GetMapping("f")
-    public List<Board> findAllMember() {
-        return testService.findAll();
+    @GetMapping("a")
+    public List<Accounts> findAllAccount() {
+        return accountService.findAll();
     }
-
-
-
 }
