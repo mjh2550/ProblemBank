@@ -1,6 +1,7 @@
 package com.problem.bank.mjin.main.maria.service;
 
 import com.problem.bank.mjin.main.maria.model.Board;
+import com.problem.bank.mjin.main.maria.model.Test;
 import com.problem.bank.mjin.main.maria.repo.TestRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,8 @@ public class TestService {
         this.testRepository = testRepository;
     }
 
-    public List<Board> findAll(){
-        List<Board> boards = new ArrayList<>();
+    public List<Test> findAll(){
+        List<Test> boards = new ArrayList<>();
         testRepository.findAll().forEach(e -> boards.add(e));
         return boards;
     }

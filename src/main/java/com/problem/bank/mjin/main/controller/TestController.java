@@ -1,6 +1,7 @@
 package com.problem.bank.mjin.main.controller;
 
 import com.problem.bank.mjin.main.maria.model.Board;
+import com.problem.bank.mjin.main.maria.model.Test;
 import com.problem.bank.mjin.main.maria.service.TestService;
 import com.problem.bank.mjin.main.ora.model.Accounts;
 import com.problem.bank.mjin.main.ora.service.AccountService;
@@ -20,14 +21,12 @@ public class TestController {
     @Autowired
     private TestService testService;
 
-
-
     /**
      * 테스트 게시글 전체조회
      * @return
      */
     @GetMapping("f")
-    public List<Board> findAllMember() {
+    public List<Test> findAllMember() {
         return testService.findAll();
     }
 
