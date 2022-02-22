@@ -1,0 +1,65 @@
+USE problembank;
+
+create TABLE contents (
+id int auto_increment,
+company_id NVARCHAR(100) not null,
+contents_id nvarchar(200) not null,
+cate1 NVARCHAR(50) not null,
+cate2 nvarchar(50) ,
+cate3 NVARCHAR(50) ,
+contents_title nvarchar(200) not null,
+contents_description nvarchar(500),
+reg_time  datetime default NOW(),
+reg_id    nvarchar(50),
+edit_time datetime,
+edit_id   nvarchar(50),
+TMP1	nvarchar(50) ,
+TMP2    nvarchar(50) ,
+primary key (id)
+);
+
+DROP TABLE contents;
+
+INSERT INTO contents (company_id,contents_id,cate1,contents_title,contents_description,reg_id)
+values('mjh','COM_001','COMMON','공통','공통문제','mjh2550'),
+('mjh','HIS_001','HISTORY','역사','역사문제','mjh2550'),
+('mjh','MATH_001','MATH','수학','수학문제','mjh2550');
+
+  SELECT company_id
+		,contents_id
+		,cate1
+		,contents_title
+		,contents_description
+		#,reg_id 
+   FROM contents
+  WHERE 1=1;
+
+
+create TABLE X_problems (
+id int auto_increment,
+company_id nvarchar(100) not null,
+contents_id nvarchar(200) not null,
+P_01 nvarchar(200),P_02 nvarchar(200),P_03 nvarchar(200),P_04 nvarchar(200),P_05 nvarchar(200),
+P_06 nvarchar(200),P_07 nvarchar(200),P_08 nvarchar(200),P_09 nvarchar(200),P_10 nvarchar(200),
+P_11 nvarchar(200),P_12 nvarchar(200),P_13 nvarchar(200),P_14 nvarchar(200),P_15 nvarchar(200),
+P_16 nvarchar(200),P_17 nvarchar(200),P_18 nvarchar(200),P_19 nvarchar(200),P_20 nvarchar(200),
+P_21 nvarchar(200),P_22 nvarchar(200),P_23 nvarchar(200),P_24 nvarchar(200),P_25 nvarchar(200),
+P_26 nvarchar(200),P_27 nvarchar(200),P_28 nvarchar(200),P_29 nvarchar(200),P_30 nvarchar(200),
+P_31 nvarchar(200),P_32 nvarchar(200),P_33 nvarchar(200),P_34 nvarchar(200),P_35 nvarchar(200),
+P_36 nvarchar(200),P_37 nvarchar(200),P_38 nvarchar(200),P_39 nvarchar(200),P_40 nvarchar(200),
+P_41 nvarchar(200),P_42 nvarchar(200),P_43 nvarchar(200),P_44 nvarchar(200),P_45 nvarchar(200),
+P_46 nvarchar(200),P_47 nvarchar(200),P_48 nvarchar(200),P_49 nvarchar(200),P_50 nvarchar(200),
+etc_01 nvarchar(2000), etc_02 nvarchar(2000),etc_03 nvarchar(2000), etc_04 nvarchar(2000),etc_05 nvarchar(2000),
+primary key (id)
+);
+
+insert into x_problems (
+company_id ,
+contents_id ,
+P_01,P_02,P_03 ,P_04,P_05,
+P_06,P_07,P_08 ,P_09,P_10,
+P_11,P_12,P_13 ,P_14,P_15,
+P_16,P_17,P_18 ,P_19,P_20)
+values('mjh','MATH_001',
+'1','2','3','4','5','1','2','3','4','5'
+,'1','2','3','4','5','1','2','3','4','5');

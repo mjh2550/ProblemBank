@@ -1,6 +1,5 @@
 package com.problem.bank.mjin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
@@ -17,10 +16,12 @@ import java.util.HashMap;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "oracleEntityManager", transactionManagerRef = "oracleTransactionManager", basePackages = "com.problem.bank.mjin.main.ora.repo")
+@EnableJpaRepositories(entityManagerFactoryRef = "oracleEntityManager", transactionManagerRef = "oracleTransactionManager", basePackages = "com.problem.bank.mjin.common.ora.repo")
 public class SecondDBConfig {
 
     private final Environment env;
+
+    private final static String BASE_PACKAGE_NAME = "com.problem.bank.mjin.common";
 
     public SecondDBConfig(Environment env) {
         this.env = env;
@@ -45,7 +46,7 @@ public class SecondDBConfig {
         HashMap<String, Object> properties = new HashMap<>();
 
         localContainerEntityManagerFactoryBean.setDataSource(oracleDataSource());
-        localContainerEntityManagerFactoryBean.setPackagesToScan("com.problem.bank.mjin.main.ora.model");
+        localContainerEntityManagerFactoryBean.setPackagesToScan(BASE_PACKAGE_NAME+".ora.model");
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
 
         properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.sub.hibernate.hbm2ddl.auto"));

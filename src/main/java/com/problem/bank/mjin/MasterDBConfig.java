@@ -1,6 +1,5 @@
 package com.problem.bank.mjin;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -18,10 +17,12 @@ import java.util.HashMap;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "mysqlEntityManager", transactionManagerRef = "mysqlTransactionManager", basePackages = "com.problem.bank.mjin.main.maria.repo")
+@EnableJpaRepositories(entityManagerFactoryRef = "mysqlEntityManager", transactionManagerRef = "mysqlTransactionManager", basePackages = "com.problem.bank.mjin.common.maria.repo")
 public class MasterDBConfig {
 
     private final Environment env;
+
+    private final static String BASE_PACKAGE_NAME = "com.problem.bank.mjin.common";
 
     public MasterDBConfig(Environment env) {
         this.env = env;
@@ -45,10 +46,10 @@ public class MasterDBConfig {
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         HashMap<String, Object> properties = new HashMap<>();
         localContainerEntityManagerFactoryBean.setDataSource(mysqlDataSource());
-        localContainerEntityManagerFactoryBean.setPackagesToScan(new String[] { "com.problem.bank.mjin.main.maria.model" });
+        localContainerEntityManagerFactoryBean.setPackagesToScan(new String[] { BASE_PACKAGE_NAME+".maria.model" });
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
-        properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.main.hibernate.hbm2ddl.auto"));
-        properties.put("hibernate.dialect", env.getProperty("spring.main.hibernate.dialect"));
+        properties.put("hibernate.hbm2ddl.auto", env.getProperty("spring.common.hibernate.hbm2ddl.auto"));
+        properties.put("hibernate.dialect", env.getProperty("spring.common.hibernate.dialect"));
         localContainerEntityManagerFactoryBean.setJpaPropertyMap(properties);
         return localContainerEntityManagerFactoryBean;
     }

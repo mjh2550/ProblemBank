@@ -1,0 +1,25 @@
+package com.problem.bank.mjin.common.maria.service;
+
+import com.problem.bank.mjin.common.maria.model.Test;
+import com.problem.bank.mjin.common.maria.repo.TestRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class TestService {
+
+    private final TestRepository testRepository;
+
+    public TestService(TestRepository testRepository) {
+        this.testRepository = testRepository;
+    }
+
+    public List<Test> findAll(){
+        List<Test> boards = new ArrayList<>();
+        testRepository.findAll().forEach(e -> boards.add(e));
+        return boards;
+    }
+
+}
