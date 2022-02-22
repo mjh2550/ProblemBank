@@ -5,7 +5,7 @@
 *고찬윤, 문지홍
 
 ## 개발 환경
-*Spring ,Spring-boot, JPA, MariaDB , OracleDB
+*Spring ,Spring-boot,thymeleaf , JPA, MariaDB , OracleDB
 
 ## 개발 내용
 
