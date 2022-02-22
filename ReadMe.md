@@ -20,8 +20,9 @@
 *시험지 텍스트 파일, CSV 파일 업로드 시 문제/정답 별로 자동 세팅
 
 
-### PATH
-###**Code
+## PATH
+
+### BACK_END
 CODE_PACKAGE : src/main/java/com/problem/bank/mjin
 * CODE_PACKAGE/* : 설정
 * CODE_PACKAGE/common/* : 공통 로직, 데이터 모델 , db
@@ -29,7 +30,7 @@ CODE_PACKAGE : src/main/java/com/problem/bank/mjin
 * CODE_PACKAGE/user/* : 사용자
 
 
-###**View
+### FRONT_END
 VIEW_PACKAGE : src/main/resource
 * VIEW_PACKAGE/views/admin/* : 관리자 view
 * VIEW_PACKAGE/views/user/* : 사용자 view
