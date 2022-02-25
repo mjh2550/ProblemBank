@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UploadService {
 
-    final
+   /* final
     UploadRepository uploadRepository;
 
     public UploadService(UploadRepository uploadRepository) {
         this.uploadRepository = uploadRepository;
     }
 
-
+*/
 
 }

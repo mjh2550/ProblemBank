@@ -1,5 +1,6 @@
 USE problembank;
 
+#PROBLEM MASTER TABLE
 create TABLE contents (
 id int auto_increment,
 company_id NVARCHAR(100) not null,
@@ -34,7 +35,7 @@ values('mjh','COM_001','COMMON','공통','공통문제','mjh2550'),
    FROM contents
   WHERE 1=1;
 
-
+#PROBLEM DETAIL TABLE
 create TABLE X_problems (
 id int auto_increment,
 company_id nvarchar(100) not null,
