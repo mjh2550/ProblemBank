@@ -15,3 +15,23 @@
         templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
+
+
+
+# 2. The dependencies of some of the beans in the application context form a cycle(중복성 순환 참조)
+상황 : 스프링 Bean 컨테이너의 의존성 주입 시 문제 발생
+
+원인 : 순환 종속성 또는 순환 참조 문제는 둘 이상의 Bean이 생성자를 통해 서로를 주입하려고할 때 발생한다.
+        -> @Autowired 가 두개이상 일 때 발생하는 문제!!
+
+해결  
+시도 1 : @RequiredArgsConstructor 사용
+        -> 생성자 순환참조 방지, final 객체를 알아서 생성자에 넣어줌
+        => 실패, 같은문제 출력
+
+원인 2 : 다중DB설정 시 basePackage의 경로는 항상 고정이기 때문에 dbpackage 상위에 소스가 존재해야 함
+
+시도 2 : BasePackage 구조 변경, 가장 상위 패키지에 maria, ora 등의 DB패키지 형성
+        => 해결
+
+

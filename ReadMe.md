@@ -23,12 +23,18 @@
 ## PATH
 
 ### BACK_END
-CODE_PACKAGE : src/main/java/com/problem/bank/mjin
-* CODE_PACKAGE/* : 설정
-* CODE_PACKAGE/common/* : 공통 로직, 데이터 모델 , db
-* CODE_PACKAGE/admin/* : 관리자
-* CODE_PACKAGE/user/* : 사용자
+* CODE_PACKAGE : src/main/java/com/problem/bank/mjin
+* DB : maria , ora
+* 화면
+  - admin : main , upload
+  - user : main 
 
+* 경로
+  * CODE_PACKAGE/config : 설정
+  * CODE_PACKAGE/{DB}/controller : {화면}컨트롤러
+  * CODE_PACKAGE/{DB}/model : {DB}데이터 모델 
+  * CODE_PACKAGE/{DB}/repo : {화면}JPARepository
+  * CODE_PACKAGE/{DB}/service : {화면}서비스
 
 ### FRONT_END
 VIEW_PACKAGE : src/main/resource
