@@ -32,6 +32,9 @@
 원인 2 : 다중DB설정 시 basePackage의 경로는 항상 고정이기 때문에 dbpackage 상위에 소스가 존재해야 함
 
 시도 2 : BasePackage 구조 변경, 가장 상위 패키지에 maria, ora 등의 DB패키지 형성
-        => 해결
+        => 상관없는 듯
+        
+시도 3 : Repository의 메서드 명을 getAllList에서  findAll(기존에 있던 메서드) 로 변경 
+        => 
 
 
