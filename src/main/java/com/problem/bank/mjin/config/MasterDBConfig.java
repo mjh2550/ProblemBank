@@ -17,12 +17,12 @@ import java.util.HashMap;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "mysqlEntityManager", transactionManagerRef = "mysqlTransactionManager", basePackages = "com.problem.bank.mjin.maria.repo")
+@EnableJpaRepositories(entityManagerFactoryRef = "mysqlEntityManager", transactionManagerRef = "mysqlTransactionManager", basePackages = "com.problem.bank.mjin.db.maria.repo")
 public class MasterDBConfig {
 
     private final Environment env;
 
-    private final static String BASE_PACKAGE_NAME = "com.problem.bank.mjin.maria";
+    private final static String BASE_PACKAGE_NAME = "com.problem.bank.mjin.db.maria";
 
     public MasterDBConfig(Environment env) {
         this.env = env;

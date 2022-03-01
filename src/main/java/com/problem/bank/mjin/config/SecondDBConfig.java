@@ -16,12 +16,12 @@ import java.util.HashMap;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "oracleEntityManager", transactionManagerRef = "oracleTransactionManager", basePackages = "com.problem.bank.mjin.ora.repo")
+@EnableJpaRepositories(entityManagerFactoryRef = "oracleEntityManager", transactionManagerRef = "oracleTransactionManager", basePackages = "com.problem.bank.mjin.db.ora.repo")
 public class SecondDBConfig {
 
     private final Environment env;
 
-    private final static String BASE_PACKAGE_NAME = "com.problem.bank.mjin.ora";
+    private final static String BASE_PACKAGE_NAME = "com.problem.bank.mjin.db.ora";
 
     public SecondDBConfig(Environment env) {
         this.env = env;

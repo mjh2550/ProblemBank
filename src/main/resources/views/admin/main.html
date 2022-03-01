@@ -1,54 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>ADMIN MAIN PAGE</title>
+    <script>
+        function into(){
+
+            let data = $("#ch").val();
+            let messageDTO = {result: data};
+            $.ajax({
+                   url: "/main/search.do"
+                //, dataType :"text"
+                , data: messageDTO, type: "POST",}).done(function (fragment) {
+                $("#resultDiv").replaceWith(fragment);
+                console.log(fragment);
+            }).fail(()=>{
+                alert(messageDTO);
+            });
+
+        }
+
+    </script>
 </head>
-<body>
+        <body>
+        <div style="text-align: center">
+            <th:block>Problem Contents List</th:block>
+            <hr>
+        </div>
+            <p><input th:id="ch" type="text"></p>
+            <p><input th:value="msg" type="button" onclick="into()"></p>
+        <table id="dataTable" th:border="1" th:align="center">
+            <thead>
+            <tr>
+                <th>순번</th>
+                <th>회사명</th>
+                <th>아이디</th>
+                <th>카테고리1</th>
+                <th>카테고리2</th>
+                <th>카테고리3</th>
+                <th>컨텐츠 타입</th>
+                <th>제목</th>
+                <th>문제 내용</th>
+                <th>경로</th>
+                <th>생성 시간</th>
+                <th>생성 아이디</th>
+                <th>버튼</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            </tr>
+            <tr th:each="contents : ${AllList}">
+                <td th:text="${contents.id}">id</td>
+                <td th:text="${contents.companyId}">id</td>
+                <td th:text="${contents.contentsId}">id</td>
+                <td th:text="${contents.cate1}">id</td>
+                <td th:text="${contents.cate2}">id</td>
+                <td th:text="${contents.cate3}">id</td>
+                <td th:text="${contents.contentsType}">id</td>
+                <td th:text="${contents.contentsTitle}">id</td>
+                <td th:text="${contents.contentsDescription}">id</td>
+                <td th:text="${contents.contentsPath}">id</td>
+                <td th:text="${contents.regTime}">id</td>
+                <td th:text="${contents.regId}">id</td>
+                <!--리터럴 대체 문법-->
+               <!-- <td th:onclick="|location.href='@{/home.html}'|"></td>-->
+                <!--th:onclick="'location.href=' + '\'' +@{/basic/items/add} + '\''"-->
+                <!--<td th:text="${contents.editTime}">id</td>-->
+                <td> <input th:value="확인" type="button" onclick="into()"></td>
+            </tr>
+            </tbody>
+        </table>
 
-    <div style="text-align: center">
-    <th:block>Problem Contents List</th:block>
-    <hr>
-    </div>
-<table id="dataTable" th:border="1" th:align="center">
-    <thead>
-    <tr>
-        <th>순번</th>
-        <th>회사명</th>
-        <th>아이디</th>
-        <th>카테고리1</th>
-        <th>카테고리2</th>
-        <th>카테고리3</th>
-        <th>컨텐츠 타입</th>
-        <th>제목</th>
-        <th>문제 내용</th>
-        <th>경로</th>
-        <th>생성 시간</th>
-        <th>생성 아이디</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-
-    </tr>
-    <tr th:each="contents : ${AllList}">
-        <td th:text="${contents.id}">id</td>
-        <td th:text="${contents.companyId}">id</td>
-        <td th:text="${contents.contentsId}">id</td>
-        <td th:text="${contents.cate1}">id</td>
-        <td th:text="${contents.cate2}">id</td>
-        <td th:text="${contents.cate3}">id</td>
-        <td th:text="${contents.contentsType}">id</td>
-        <td th:text="${contents.contentsTitle}">id</td>
-        <td th:text="${contents.contentsDescription}">id</td>
-        <td th:text="${contents.contentsPath}">id</td>
-        <td th:text="${contents.regTime}">id</td>
-        <td th:text="${contents.regId}">id</td>
-        <!--<td th:text="${contents.editTime}">id</td>-->
-    </tr>
-    </tbody>
-</table>
-
-
-</body>
+        <div id="resultDiv">
+            <p th:if="${msg}!=null" th:text="${msg}"></p>
+        </div>
+        </body>
 </html>

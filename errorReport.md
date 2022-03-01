@@ -35,3 +35,14 @@
         => 해결
 
 
+# 3. Ajax 시 Controller 400 error
+상황 : ajax 통신 중 컨트롤러 호출 시 에러 발생
+
+원인 : @RestController 대신 @Controller 사용
+ -> @RestController는 @Controller와 @ResponseBody의 조합이다.
+
+해결 : 변경
+
+Reference : [@RestController 와 @Controller의 차이](https://dncjf64.tistory.com/288)
+
+
