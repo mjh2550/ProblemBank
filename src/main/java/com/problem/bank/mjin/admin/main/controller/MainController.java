@@ -21,12 +21,12 @@ public class MainController {
     @Autowired
     private MainService mainService;
 
-    ModelAndView mv;
+
 
     @GetMapping("")
     public ModelAndView getAdminMain(){
 
-        mv = new ModelAndView("admin/main");
+        ModelAndView mv = new ModelAndView("admin/main");
         List<Contents> AllList = mainService.findAllList();
         mv.addObject("AllList",AllList);
 
@@ -34,10 +34,12 @@ public class MainController {
     }
 
     @PostMapping("search.do")
-    public List<Contents> getSearchData(@RequestParam Map<String,Object> param,Model model){
+    public ArrayList<Contents> getSearchData(@RequestParam Map<String,Object> param,Model model){
+      //  ModelAndView mv = new ModelAndView("jsonView");
         ArrayList<Contents> searchList = mainService.findSearchList(Integer.parseInt(param.get("result").toString()));
         //System.out.println(param.get("result"));
-        //model.addAttribute("msg","/ this is the value sent by the server ");
+      //  mv.addObject("searchList",searchList);
+       // model.addAttribute("searchList",searchList);
         return searchList;
     }
 

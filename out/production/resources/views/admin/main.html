@@ -10,11 +10,24 @@
             let data = $("#ch").val();
             let messageDTO = {result: data};
             $.ajax({
-                   url: "/main/search.do"
-                //, dataType :"text"
-                , data: messageDTO, type: "POST",}).done(function (fragment) {
-                $("#resultDiv").replaceWith(fragment);
-                console.log(fragment);
+                  url: "/main/search.do"
+                , dataType: "json"
+                , data: messageDTO
+                , type: "POST",}).done(function (arr) {
+
+                    $("#resultDiv").empty();//검색 시 리스트 초기화
+
+                    $.each(arr, function(i,item){ //리스트 반복
+                        let tr = $("<tr></tr>");  //상위 tr태그
+                        //console.log(item)
+                        $.each(item, function(key,value){
+                            $("<td></td>").html(value).appendTo(tr);
+                        });
+                        $("#resultDiv").append(tr);
+                    });
+
+               // $("#resultDiv").replaceWith(div);
+
             }).fail(()=>{
                 alert(messageDTO);
             });
@@ -73,8 +86,8 @@
             </tbody>
         </table>
 
-        <div id="resultDiv">
-            <p th:if="${msg}!=null" th:text="${msg}"></p>
-        </div>
+        <table id="resultDiv" th:border="1" th:align="center" >
+
+        </table>
         </body>
 </html>
